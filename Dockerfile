@@ -1,4 +1,4 @@
-FROM rasa/rasa_nlu:0.12.3-spacy
+FROM rasa/rasa_nlu:latest-spacy
 
 COPY projects /app/projects
 COPY config.yml /app/config.yml
