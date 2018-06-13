@@ -1,0 +1,108 @@
+* hoaxly-nlp-container
+	:LOGBOOK:
+	CLOCK: [2018-06-13 Wed 01:45]--[2018-06-13 Wed 02:05] =>  0:20
+	:END:
+** using rasa nlu [fn:2]
+
+basic local setup looks like this. (but keep reading for the alternative docker setup)
+
+Install rasa_nlu:
+- cd rasa_nlu
+- pip install -r requirements.txt
+- pip install -e .
+- cd hoaxlybot/rasa
+- pip install rasa_nlu[spacy]
+- python -m spacy download en_core_web_md
+- python -m spacy link en_core_web_md en
+
+Training server:
+$ python -m rasa_nlu.train --config config.yml --data hoaxly-rasa-en.json --path projects
+
+Starting server:
+$ python -m rasa_nlu.server --path projects
+
+Test:
+$ curl -X POST localhost:5000/parse -d '{"q":"I am looking for Mexican food"}' | python -m json.tool
+
+# Todos
+- Add German configuration and training file.
+** docker packaging, buildserver and deployment
+	 :LOGBOOK:
+	 CLOCK: [2018-06-13 Wed 02:05]--[2018-06-13 Wed 02:32] =>  0:27
+	 :END:
+we can use docker for ncu [fn:1]
+*** WIP add a docker file and a gitlab ci file
+		:PROPERTIES:
+		:ID:       29155403-fe27-418d-9252-e361f63b2d14
+		:END:
+
+ - [[file:Dockerfile::FROM%20rasa/rasa_nlu:latest-spacy][Dockerfile]]
+ - [[file:.gitlab-ci.yml::image:%20tmaier/docker-compose:17.09][gitlab-ci file]]
+ - [[https://gitlab.acolono.net/hoaxly/hoaxly-rasa-nlu-container/merge_requests/1][merge request (#1)]]
+
+
+*** push builds to our registry
+ - [[https://gitlab.acolono.net/hoaxly/hoaxly-rasa-nlu-container/container_registry][container registry]]
+
+*** test container manually
+ first pull the container from registry (you need to login to the registry first to be able to pull containers)
+ #+NAME: docker-pull-container
+ #+BEGIN_SRC shell :eval never-export
+docker pull registry.acolono.net:444/hoaxly/hoaxly-rasa-nlu-container:demo-docker-build
+ #+END_SRC
+
+quickly spin up a container from that image
+#+NAME: run-the-container
+#+BEGIN_SRC shell :eval never-export
+docker run -p 5000:5000 registry.acolono.net:444/hoaxly/hoaxly-rasa-nlu-container:demo-docker-build
+#+END_SRC
+
+running the follwing command should prove if it works somehow
+
+#+NAME: test-nlu-container
+#+BEGIN_SRC shell :eval never-export
+curl -X POST localhost:5000/parse -d '{"q":"I am looking for Mexican food"}' | python -m json.tool
+#+END_SRC
+
+but you can debug by logging in 
+
+#+BEGIN_SRC shell :eval never-export
+
+docker run -it --entrypoint=bash -p 5000:5000 registry.acolono.net:444/hoaxly/hoaxly-rasa-nlu-container:demo-docker-build
+
+#+END_SRC
+*** configure deployment
+*** introduce a basic test stage to our builds
+** training with docker
+instead of installing the tool locally and training from there we use docker to ensure we are all building our projects and models using the same python version and dependencies.
+you can update the projects or data[fn:3], for example to train the new models from the json file in [[file:data/hoaxly-rasa-en.json]] run
+#+BEGIN_SRC shell :eval never-export
+docker run \
+			 -v $(pwd)/projects:/app/projects \
+			 -v $(pwd)/config.yml:/app/config.yml \
+			 -v $(pwd)/data:/app/data \
+			 -p 5000:5000 \
+			 hoaxly/hoaxly-rasa-nlu-container:demo-withdata run python -m rasa_nlu.train \
+			 -c /app/config.yml \
+			 -d data/hoaxly-rasa-en.json \
+			 --project hoaxly-nlu-project \
+			 --fixed_model_name hoaxly-nlu-model \
+			 --path projects
+
+#+END_SRC
+
+
+and parse new requests like
+
+#+BEGIN_SRC shell
+curl 'http://localhost:5000/parse?q=hello&project=test_model'
+
+
+#+END_SRC
+* Footnotes
+
+[fn:3] https://github.com/RasaHQ/rasa_nlu#training-new-models
+
+[fn:2] https://nlu.rasa.com/tutorial.html
+
+[fn:1] https://blog.spg.ai/using-rasa-nlu-with-docker-96b86856b392?gi=36d5f7f69058

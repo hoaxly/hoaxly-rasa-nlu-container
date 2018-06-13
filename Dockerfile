@@ -1,6 +1,7 @@
 FROM rasa/rasa_nlu:latest-spacy
 
 COPY projects /app/projects
+COPY data /app/data
 COPY config.yml /app/config.yml
 VOLUME ["/app/projects", "/app/logs", "/app/data"]
 

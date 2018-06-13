@@ -1,0 +1,557 @@
+{
+  "rasa_nlu_data": {
+    "regex_features": [
+      {
+        "name": "zipcode",
+        "pattern": "[0-9]{5}"
+      },
+      {
+        "name": "greet",
+        "pattern": "hey[^\\s]*"
+      }
+    ],
+    "entity_synonyms": [
+      {
+        "value": "goal",
+        "synonyms": ["goals", "achievement"]
+      },
+      {
+        "value": "factcheck",
+        "synonyms": ["fact-check", "factchecks", "falsification", "check", "review", "debunking"]
+      },
+      {
+        "value": "false",
+        "synonyms": ["fake", "wrong", "not true", "misleading"]
+      },
+      {
+        "value": "true",
+        "synonyms": ["right", "not false", "accurate"]
+      },
+      {
+        "value": "url",
+        "synonyms": ["website", "site", "article", "uri", "source"]
+      }
+    ],
+    "common_examples": [
+      {
+        "text": "hey", 
+        "intent": "greet", 
+        "entities": []
+      }, 
+      {
+        "text": "howdy", 
+        "intent": "greet", 
+        "entities": []
+      }, 
+      {
+        "text": "hey there",
+        "intent": "greet", 
+        "entities": []
+      }, 
+      {
+        "text": "hello", 
+        "intent": "greet", 
+        "entities": []
+      }, 
+      {
+        "text": "hi", 
+        "intent": "greet", 
+        "entities": []
+      },
+      {
+        "text": "good morning",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "good evening",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "dear sir",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "yes", 
+        "intent": "affirm", 
+        "entities": []
+      }, 
+      {
+        "text": "yep", 
+        "intent": "affirm", 
+        "entities": []
+      }, 
+      {
+        "text": "yeah", 
+        "intent": "affirm", 
+        "entities": []
+      },
+      {
+        "text": "indeed",
+        "intent": "affirm",
+        "entities": []
+      },
+      {
+        "text": "that's right",
+        "intent": "affirm",
+        "entities": []
+      },
+      {
+        "text": "ok",
+        "intent": "affirm",
+        "entities": []
+      },
+      {
+        "text": "great",
+        "intent": "affirm",
+        "entities": []
+      },
+      {
+        "text": "right, thank you",
+        "intent": "affirm",
+        "entities": []
+      },
+      {
+        "text": "correct",
+        "intent": "affirm",
+        "entities": []
+      },
+      {
+        "text": "great choice",
+        "intent": "affirm",
+        "entities": []
+      },
+      {
+        "text": "sounds really good",
+        "intent": "affirm",
+        "entities": []
+      },
+      {
+        "text": "How does it work?",
+        "intent": "faq_how",
+        "entities": []
+      },
+      {
+        "text": "What licence are you using?",
+        "intent": "faq_licence",
+        "entities": []
+      },
+      {
+        "text": "What licences are you using?",
+        "intent": "faq_licence",
+        "entities": []
+      },
+      {
+        "text": "Is it free?",
+        "intent": "faq_licence",
+        "entities": []
+      },
+      {
+        "text": "Can I help?",
+        "intent": "faq_contribute",
+        "entities": []
+      },
+      {
+        "text": "How can I help out?",
+        "intent": "faq_contribute",
+        "entities": []
+      },
+      {
+        "text": "How to help?",
+        "intent": "faq_contribute",
+        "entities": []
+      },
+      {
+        "text": "Can I contribute?",
+        "intent": "faq_contribute",
+        "entities": []
+      },
+      {
+        "text": "How can I contribute?",
+        "intent": "faq_contribute",
+        "entities": []
+      },
+      {
+        "text": "What are your goals?",
+        "intent": "faq_goals",
+        "entities": []
+      },
+      {
+        "text": "What do you want to achieve?",
+        "intent": "faq_goals",
+        "entities": []
+      },
+      {
+        "text": "What do you want?",
+        "intent": "faq_goals",
+        "entities": []
+      },
+      {
+        "text": "Who is doing the factchecks?",
+        "intent": "faq_factcheck_who",
+        "entities": []
+      },
+      {
+        "text": "How are you doing the factchecks?",
+        "intent": "faq_factcheck_who",
+        "entities": []
+      },
+      {
+        "text": "How can you say something is true?",
+        "intent": "faq_factcheck_who",
+        "entities": []
+      },
+      {
+        "text": "How do you know something is true?",
+        "intent": "faq_factcheck_who",
+        "entities": []
+      },
+      {
+        "text": "Why do you know something is true?",
+        "intent": "faq_factcheck_who",
+        "entities": []
+      },
+      {
+        "text": "Why do you know something is false?",
+        "intent": "faq_factcheck_who",
+        "entities": []
+      },
+      {
+        "text": "How can you say something is false?",
+        "intent": "faq_factcheck_who",
+        "entities": []
+      },
+      {
+        "text": "What factcheck sources do you use?",
+        "intent": "faq_factcheck_sources",
+        "entities": []
+      },
+      {
+        "text": "What sources do you use?",
+        "intent": "faq_factcheck_sources",
+        "entities": []
+      },
+      {
+        "text": "What are your debunking sources?",
+        "intent": "faq_factcheck_sources",
+        "entities": []
+      },
+      {
+        "text": "Your debunking sources?",
+        "intent": "faq_factcheck_sources",
+        "entities": []
+      },
+      {
+        "text": "How can I report a misleading article?",
+        "intent": "faq_get_listed",
+        "entities": []
+      },
+      {
+        "text": "Can I add a false article?",
+        "intent": "faq_get_listed",
+        "entities": []
+      },
+      {
+        "text": "How to get this fake website listed?",
+        "intent": "ffaq_get_listed",
+        "entities": []
+      },
+      {
+        "text": "How to get this wrong url listed?",
+        "intent": "faq_get_listed",
+        "entities": []
+      },
+      {
+        "text": "Can I add articles?",
+        "intent": "faq_get_listed",
+        "entities": []
+      },
+      {
+        "text": "Can someone add articles?",
+        "intent": "faq_get_listed",
+        "entities": []
+      },
+      {
+        "text": "Your information is wrong",
+        "intent": "faq_factcheck_report",
+        "entities": []
+      },
+      {
+        "text": "There is something wrong.",
+        "intent": "faq_factcheck_report",
+        "entities": []
+      },
+      {
+        "text": "There is something not right.",
+        "intent": "faq_factcheck_report",
+        "entities": []
+      },
+      {
+        "text": "This factcheck is not right.",
+        "intent": "faq_factcheck_report",
+        "entities": []
+      },
+      {
+        "text": "The factcheck is wrong.",
+        "intent": "faq_factcheck_report",
+        "entities": []
+      },
+      {
+        "text": "Why do you think factchecker are providing you with content?",
+        "intent": "faq_factchecker_concern",
+        "entities": []
+      },
+      {
+        "text": "Why should a factchecking organisation give you their content?",
+        "intent": "faq_factchecker_concern",
+        "entities": []
+      },
+      {
+        "text": "Are you allowed to use the factchecking content?",
+        "intent": "faq_factchecker_concern",
+        "entities": []
+      },
+      {
+        "text": "What languages are you supporting?",
+        "intent": "faq_language_support",
+        "entities": []
+      },
+      {
+        "text": "Do you have German content?",
+        "intent": "faq_language_support",
+        "entities": []
+      },
+      {
+        "text": "Do you have English content?",
+        "intent": "faq_language_support",
+        "entities": []
+      },
+      {
+        "text": "Do you have content in another language?",
+        "intent": "faq_language_support",
+        "entities": []
+      },
+      {
+        "text": "Can I add this source?",
+        "intent": "faq_add source",
+        "entities": []
+      },
+      {
+        "text": "Can you add this source?",
+        "intent": "faq_add source",
+        "entities": []
+      },
+      {
+        "text": "Can you add this website?",
+        "intent": "faq_add source",
+        "entities": []
+      },
+      {
+        "text": "Can you add include this website?",
+        "intent": "faq_add source",
+        "entities": []
+      },
+      {
+        "text": "Do you think this works?",
+        "intent": "faq_meaningfulness",
+        "entities": []
+      },
+      {
+        "text": "Do you think this works?",
+        "intent": "faq_meaningfulness",
+        "entities": []
+      },
+      {
+        "text": "This will not work!",
+        "intent": "faq_meaningfulness",
+        "entities": []
+      },
+      {
+        "text": "This is bullshit!",
+        "intent": "faq_meaningfulness",
+        "entities": []
+      },
+      {
+        "text": "You're doing it wrong!",
+        "intent": "faq_meaningfulness",
+        "entities": []
+      },
+      {
+        "text": "Why should this work?",
+        "intent": "faq_meaningfulness",
+        "entities": []
+      },
+      {
+        "text": "Do you really think this works?",
+        "intent": "faq_meaningfulness",
+        "entities": []
+      },
+      {
+        "text": "Do you really think you can change people?",
+        "intent": "faq_change_people",
+        "entities": []
+      },
+      {
+        "text": "Will you accuse people?",
+        "intent": "faq_change_people",
+        "entities": []
+      },
+      {
+        "text": "Will people change?",
+        "intent": "faq_change_people",
+        "entities": []
+      },
+      {
+        "text": "Do you think people will use it?",
+        "intent": "faq_change_people",
+        "entities": []
+      },
+      {
+        "text": "Will people use it?",
+        "intent": "faq_change_people",
+        "entities": []
+      },
+      {
+        "text": "People will not use it!",
+        "intent": "faq_change_people",
+        "entities": []
+      },
+      {
+        "text": "Nobody will use it!",
+        "intent": "faq_change_people",
+        "entities": []
+      },
+      {
+        "text": "No one will use it!",
+        "intent": "faq_change_people",
+        "entities": []
+      },
+      {
+        "text": "Can you look up the url https://www.orf.at?",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 24,
+            "end": 42,
+            "value": "http://www.orf.at",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "How about the url www.orf.at?",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 18,
+            "end": 28,
+            "value": "http://www.orf.at",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "How about the url www.urf.at?",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 18,
+            "end": 28,
+            "value": "http://www.urf.at",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "How about the url www.123.de?",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 18,
+            "end": 28,
+            "value": "http://www.123.de",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "Please check the url www.domain.net",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 21,
+            "end": 35,
+            "value": "http://wwww.domain.net",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "Check url http://www.orf.at",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 10,
+            "end": 27,
+            "value": "http://www.orf.at",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "Can you check the url http://www.orf.at?",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 22,
+            "end": 39,
+            "value": "http://www.orf.at",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "bye", 
+        "intent": "goodbye", 
+        "entities": []
+      }, 
+      {
+        "text": "goodbye", 
+        "intent": "goodbye", 
+        "entities": []
+      }, 
+      {
+        "text": "good bye", 
+        "intent": "goodbye", 
+        "entities": []
+      }, 
+      {
+        "text": "stop", 
+        "intent": "goodbye", 
+        "entities": []
+      }, 
+      {
+        "text": "end", 
+        "intent": "goodbye", 
+        "entities": []
+      },
+      {
+        "text": "farewell",
+        "intent": "goodbye",
+        "entities": []
+      },
+      {
+        "text": "Bye bye",
+        "intent": "goodbye",
+        "entities": []
+      },
+      {
+        "text": "have a good one",
+        "intent": "goodbye",
+        "entities": []
+      }
+    ]
+  }
+}
