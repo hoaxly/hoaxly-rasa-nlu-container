@@ -21,7 +21,7 @@
       },
       {
         "value": "false",
-        "synonyms": ["fake", "wrong", "not true", "misleading"]
+        "synonyms": ["fake", "wrong", "not true", "misleading", "questionable"]
       },
       {
         "value": "true",
@@ -255,7 +255,7 @@
       },
       {
         "text": "How to get this fake website listed?",
-        "intent": "ffaq_get_listed",
+        "intent": "faq_get_listed",
         "entities": []
       },
       {
