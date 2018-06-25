@@ -26,19 +26,9 @@ $ curl -X POST localhost:5000/parse -d '{"q":"I am looking for Mexican food"}' |
 
 # Todos
 - Add German configuration and training file.
-** docker packaging, buildserver and deployment
-	 :LOGBOOK:
-	 CLOCK: [2018-06-13 Wed 02:05]--[2018-06-13 Wed 02:32] =>  0:27
-	 :END:
-we can use docker for ncu [fn:1]
-*** WIP add a docker file and a gitlab ci file
-		:PROPERTIES:
-		:ID:       29155403-fe27-418d-9252-e361f63b2d14
-		:END:
 
- - [[file:Dockerfile::FROM%20rasa/rasa_nlu:latest-spacy][Dockerfile]]
- - [[file:.gitlab-ci.yml::image:%20tmaier/docker-compose:17.09][gitlab-ci file]]
- - [[https://gitlab.acolono.net/hoaxly/hoaxly-rasa-nlu-container/merge_requests/1][merge request (#1)]]
+
+** docker packaging, buildserver and deployment
 
 
 *** push builds to our registry
@@ -77,17 +67,8 @@ docker run -it --entrypoint=bash -p 5000:5000 registry.acolono.net:444/hoaxly/ho
 instead of installing the tool locally and training from there we use docker to ensure we are all building our projects and models using the same python version and dependencies.
 you can update the projects or data[fn:3], for example to train the new models from the json file in [[file:data/hoaxly-rasa-en.json]] run
 #+BEGIN_SRC shell :eval never-export
-docker run \
-			 -v $(pwd)/projects:/app/projects \
-			 -v $(pwd)/config.yml:/app/config.yml \
-			 -v $(pwd)/data:/app/data \
-			 -p 5000:5000 \
-			 hoaxly/hoaxly-rasa-nlu-container:demo-withdata run python -m rasa_nlu.train \
-			 -c /app/config.yml \
-			 -d data/hoaxly-rasa-en.json \
-			 --project hoaxly-nlu-project \
-			 --fixed_model_name hoaxly-nlu-model \
-			 --path projects
+
+docker run -v $(pwd)/projects:/app/projects -v $(pwd)/config.yml:/app/config.yml -v $(pwd)/data:/app/data -p 5000:5000 registry.acolono.net:444/hoaxly/hoaxly-rasa-nlu-container:develop run python -m rasa_nlu.train -c /app/config.yml -d data/hoaxly-rasa-en.json --project hoaxly --path projects
 
 #+END_SRC
 
@@ -95,7 +76,7 @@ docker run \
 and parse new requests like
 
 #+BEGIN_SRC shell
-curl 'http://localhost:5000/parse?q=hello&project=test_model'
+curl -X POST localhost:5000/parse -d '{"q":"I am looking for Mexican food", "project":"hoaxly"}'
 
 
 #+END_SRC
