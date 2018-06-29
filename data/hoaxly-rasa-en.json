@@ -134,6 +134,26 @@
         "entities": []
       },
       {
+        "text": "How should this work?",
+        "intent": "faq_how",
+        "entities": []
+      },
+      {
+        "text": "How can this work?",
+        "intent": "faq_how",
+        "entities": []
+      },
+      {
+        "text": "Can this work?",
+        "intent": "faq_how",
+        "entities": []
+      },
+      {
+        "text": "Does this work?",
+        "intent": "faq_how",
+        "entities": []
+      },
+      {
         "text": "What licence are you using?",
         "intent": "faq_licence",
         "entities": []
@@ -489,6 +509,78 @@
         ]
       },
       {
+        "text": "Please check the url http://www.domain.net",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 21,
+            "end": 42,
+            "value": "http://wwww.domain.net",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "Please check the url https://www.domain.net",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 21,
+            "end": 43,
+            "value": "https://wwww.domain.net",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "Please check the url https://www.domain.net/pfad/folder/text",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 21,
+            "end": 60,
+            "value": "https://www.domain.net/pfad/folder/text",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "Please check the url https://www.domain.net/pfad/folder/text?arg=myargument",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 21,
+            "end": 75,
+            "value": "https://www.domain.net/pfad/folder/text",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "Please check the url https://www.domain.net/pfad/folder/text?search=test",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 21,
+            "end": 72,
+            "value": "https://www.domain.net/pfad/folder/text",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "Please check the url https://www.domain.net/pfad/folder/text?campaign=facebook&id=1",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 21,
+            "end": 83,
+            "value": "https://www.domain.net/pfad/folder/text",
+            "entity": "url"
+          }
+        ]
+      },
+      {
         "text": "Check url http://www.orf.at",
         "intent": "url_search",
         "entities": [
@@ -496,6 +588,18 @@
             "start": 10,
             "end": 27,
             "value": "http://www.orf.at",
+            "entity": "url"
+          }
+        ]
+      },
+      {
+        "text": "Check url https://www.orf.at",
+        "intent": "url_search",
+        "entities": [
+          {
+            "start": 10,
+            "end": 28,
+            "value": "https://www.orf.at",
             "entity": "url"
           }
         ]
@@ -510,6 +614,90 @@
             "value": "http://www.orf.at",
             "entity": "url"
           }
+        ]
+      },
+      {
+        "text": "What about data privacy?",
+        "intent": "faq_data_privacy",
+        "entities": [
+        ]
+      },
+      {
+        "text": "Is my data secure?",
+        "intent": "faq_data_privacy",
+        "entities": [
+        ]
+      },
+      {
+        "text": "Do you save private data?",
+        "intent": "faq_data_privacy",
+        "entities": [
+        ]
+      },
+      {
+        "text": "Is my data save?",
+        "intent": "faq_data_privacy",
+        "entities": [
+        ]
+      },
+      {
+        "text": "I want to know what data you save",
+        "intent": "faq_data_privacy",
+        "entities": [
+        ]
+      },
+      {
+        "text": "What data you save?",
+        "intent": "faq_data_privacy",
+        "entities": [
+        ]
+      },
+      {
+        "text": "Do you use cookies?",
+        "intent": "faq_data_privacy",
+        "entities": [
+        ]
+      },
+      {
+        "text": "Do you use third-party services?",
+        "intent": "faq_data_privacy",
+        "entities": [
+        ]
+      },
+      {
+        "text": "How can I fact check?",
+        "intent": "faq_factcheck_howto",
+        "entities": [
+        ]
+      },
+      {
+        "text": "How can I fact check a blogpost myself?",
+        "intent": "faq_factcheck_howto",
+        "entities": [
+        ]
+      },
+      {
+        "text": "How can I fact check content myself?",
+        "intent": "faq_factcheck_howto",
+        "entities": [
+        ]
+      },
+      {
+        "text": "How can I say something is true?",
+        "intent": "faq_factcheck_howto",
+        "entities": [
+        ]
+      },
+      {
+        "text": "How can I check out if something is true?",
+        "intent": "faq_factcheck_howto",
+        "entities": [
+        ]
+      },
+      {
+        "text": "How can you say something is true?",
+        "intent": "faq_factcheck_who",
+        "entities": [
         ]
       },
       {
