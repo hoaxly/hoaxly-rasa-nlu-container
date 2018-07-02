@@ -1,4 +1,4 @@
-this repo provides a configured instance for running rasa NLU including a trained project for the hoaxlybots.
+This repo provides a configured instance for running rasa NLU including a trained project for the hoaxlybots.
 
 ## Installing rasa
 
@@ -41,6 +41,9 @@ $docker run -v $(pwd)/projects:/app/projects
  run python -m rasa_nlu.train  -c /app/config.yml  -d data/hoaxly-rasa-en.json  
  --project hoaxly  --path projects
 
+# License
+
+See inlcuded license file.
 
 # Todos
 - More trainings.
